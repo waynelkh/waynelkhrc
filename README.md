@@ -1,18 +1,18 @@
 # waynelkhrc
 My workflow tools setting
 ---
-- [ ] zsh
+- [x] zsh
     - .zshrc
     - .oh-my-zsh
-- [ ] vim
+- [x] vim
     - .vimrc
     - .vimrc.bundle
     - .nvimrc
-- [ ] tmux
+- [x] tmux
     - .tmux.conf
 - [ ] screen
     - .screenrc
-- [ ] git
+- [x] git
     - .gitconfig
 - [ ] irssi
 - [ ] Sublime Text 2
