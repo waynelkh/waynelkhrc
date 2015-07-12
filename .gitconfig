@@ -1,0 +1,29 @@
+[user]
+	name = wnlee
+	email = wnlee@cs.nctu.edu.tw
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+[help]
+	autocorrect = 1
+[push]
+	default = simple
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+[apply]
+	whitespace = nowarn
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
