@@ -1,0 +1,34 @@
+{
+  "cmd": ["killall node;npm start"],
+  "shell": true,
+  "selector": "source.js",
+  "path": "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin",
+  "working_dir": "$project_path",
+  "variants":
+  [
+    {
+      "name": "BrowserSync",
+      "cmd": ["browser-sync start --server --directory --port 8080 --files='*.html,*.js'"],
+      "shell": true
+    },
+    {
+      "name": "npm install",
+      "cmd": ["npm install"]
+    },
+    {
+      "name": "npm test",
+      "cmd": ["npm test"]
+    },
+    {
+      "name": "npm dev",
+      "cmd": ["npm run dev"]
+    },
+    {
+      "name": "npm build",
+      "cmd": ["npm run build"]
+    },
+    { "name": "List",
+      "cmd": ["ls -alh"]
+    }
+  ]
+}

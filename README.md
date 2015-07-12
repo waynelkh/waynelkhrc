@@ -15,4 +15,4 @@ My workflow tools setting
 - [x] git
     - .gitconfig
 - [ ] irssi
-- [ ] Sublime Text 3
+- [x] Sublime Text 3
