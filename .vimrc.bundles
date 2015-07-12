@@ -1,0 +1,213 @@
+"################### Dependence #####################
+" package dependence:  ctags
+" python dependence:   pep8, pyflake
+
+set nocompatible " 關閉vi兼容模式
+" configure Vundle
+filetype off " required! turn off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"################### plugin management ###################
+"
+" Vundle
+" vim plugin bundle control, command model
+"     :BundleInstall     install 安装配置的插件
+"     :BundleInstall!    update  更新
+"     :BundleClean       remove plugin not in list 删除本地无用插件
+Plugin 'gmarik/Vundle.vim'
+
+"################### 繁體中文HELP #######################
+Plugin 'lazywei/vim-doc-tw'
+
+"################### Sytastic 語法檢查 ###################
+"Bundle 'scrooloose/syntastic'
+"let g:syntastic_error_symbol='>>'
+"let g:syntastic_warning_symbol='>'
+"let g:syntastic_check_on_open=1
+"let g:syntastic_enable_highlighting = 0
+""let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
+""let g:syntastic_python_checkers=['pyflakes'] "
+"" 使用pyflakes,速度比pylint快
+"let g:syntastic_javascript_checkers = ['jsl', 'jshint', 'jsxhint']
+"let g:syntastic_html_checkers=['tidy', 'jshint']
+"highlight SyntasticErrorSign guifg=white guibg=black
+
+"################### YCM 自動完成 ########################
+"bundle 'Valloric/YouCompleteMe'
+""youcompleteme  默认tab  s-tab 和自动补全冲突
+""let g:ycm_key_list_select_completion=['<c-n>']
+"let g:ycm_key_list_select_completion = ['<Down>']
+""let g:ycm_key_list_previous_completion=['<c-p>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+"let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+"let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"" 註解與字串中的文字也會被當索引
+"let g:ycm_collect_identifiers_from_tags_files = 1
+""let g:ycm_autoclose_preview_window_after_completion = 1
+""let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_key_invoke_completion = '<C-Space>'       " 直接觸發自動完成
+"" 跳到宣告處 分割打開
+"let g:ycm_goto_buffer_command = 'horizontal-split'
+""nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+ 
+"################### UltiSnips ############################
+Bundle 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Bundle 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsSnippetDirectories  = ['UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+" 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
+" 进入对应filetype的snippets进行编辑
+map <leader>us :UltiSnipsEdit<CR>
+
+"################### airline enhancement ##################
+Bundle 'bling/vim-airline'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+"################### 括號增強 ############################
+Bundle 'kien/rainbow_parentheses.vim'
+  let g:rbpt_colorpairs = [
+      \ ['brown',       'RoyalBlue3'],
+      \ ['Darkblue',    'SeaGreen3'],
+      \ ['darkgray',    'DarkOrchid3'],
+      \ ['darkgreen',   'firebrick3'],
+      \ ['darkcyan',    'RoyalBlue3'],
+      \ ['darkred',     'SeaGreen3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['brown',       'firebrick3'],
+      \ ['gray',        'RoyalBlue3'],
+      \ ['black',       'SeaGreen3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['Darkblue',    'firebrick3'],
+      \ ['darkgreen',   'RoyalBlue3'],
+      \ ['darkcyan',    'SeaGreen3'],
+      \ ['darkred',     'DarkOrchid3'],
+      \ ['red',         'firebrick3'],
+      \ ]
+let g:rbpt_max = 40
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"################### GitGutter ##############################
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_map_keys = 0
+let g:gitgutter_enabled = 0
+let g:gitgutter_highlight_lines = 1
+nnoremap <leader>gs :GitGutterToggle<CR>
+
+"################### 匹配括弧 ############################## 
+Bundle 'Raimondi/delimitMate'
+
+"################### Muti selector #########################
+Bundle 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-d>'
+"let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"################### CtrP 搜尋文件 ##########################
+Bundle 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+map <leader>f :CtrlPMRU<CR>
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+    \ }
+"\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+"################## NERDTREE ################################
+Bundle 'scrooloose/nerdtree'
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+let NERDTreeDirArrows=0
+"let g:netrw_home='~/bak'
+" close vim if the only window left open is a NERDTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+"" s/v 螢幕分割打開文件 
+let g:NERDTreeMapOpenSplit = '-'
+let g:NERDTreeMapOpenVSplit = '\|'
+
+Bundle 'jistr/vim-nerdtree-tabs'
+map <F2> <plug>NERDTreeTabsToggle<CR>
+" 關閉同步
+let g:nerdtree_tabs_synchronize_view=0
+let g:nerdtree_tabs_synchronize_focus=0
+" 自動打開nerdtree 
+"let g:nerdtree_tabs_open_on_console_startup=1
+
+"################## TagList ##############################
+Bundle 'majutsushi/tagbar'
+nmap <F9> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
+"################# Markdown #########
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+
+"##### H#TML/JS/JQUERY/CSS #########
+" for javascript  注意: syntax这个插件要放前面
+Bundle 'jelera/vim-javascript-syntax'
+Bundle "pangloss/vim-javascript"
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+" For javascript 自動完成,配合YCM, 需要安装nodejs&npm  see
+" https://github.com/marijnh/tern_for_vim
+Bundle 'marijnh/tern_for_vim'
+
+" For Node 自動完成
+Bundle 'myhere/vim-nodejs-complete'
+
+"###### emmet HTML complete #########
+Bundle "mattn/emmet-vim"
+
+"###### 匹配html/xml tag ############
+Bundle 'docunext/closetag.vim'
+let g:closetag_html_style=1
+
+"################## Theme ########################
+Bundle 'altercation/vim-colors-solarized'
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+
+""主题 molokai
+Bundle 'tomasr/molokai'
+set background=dark
+set t_Co=256
+" colorscheme solarized
+
+
+call vundle#end()
+colorscheme molokai

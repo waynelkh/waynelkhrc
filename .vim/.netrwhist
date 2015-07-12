@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/net/gcs/103/0356090/Mail'
+let g:netrw_dirhist_2='/net/gcs/103/0356090/.cache'
+let g:netrw_dirhist_3='/net/gcs/103/0356090/.cache/ctrlp'
+let g:netrw_dirhist_4='/net/gcs/103/0356090/.cache/ctrlp/hist'
+let g:netrw_dirhist_5='/net/gcs/103/0356090/.emacs.d'
+let g:netrw_dirhist_6='/net/gcs/103/0356090/.local'
+let g:netrw_dirhist_7='/net/gcs/103/0356090/.local/share'
+let g:netrw_dirhist_8='/net/gcs/103/0356090/.local/share/systemd'
+let g:netrw_dirhist_9='/amd/WWW/data/newalumni/application/controllers/admin'
