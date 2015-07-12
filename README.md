@@ -4,7 +4,7 @@ My workflow tools setting
 - [x] zsh
     - .zshrc
     - .oh-my-zsh
-- [ ] vim
+- [x] vim
     - .vimrc
     - .vimrc.bundle
     - .nvimrc
