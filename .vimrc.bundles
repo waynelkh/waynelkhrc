@@ -137,7 +137,7 @@ let g:ctrlp_cmd = 'CtrlP'
 map <leader>f :CtrlPMRU<CR>
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'dir':  '\v[\/](node_modules|build|dist)|(\.(swp|ico|git|svn))$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
     \ }
 "\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
