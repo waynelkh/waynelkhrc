@@ -17,13 +17,25 @@
 	smudge = git media smudge %f
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	st = status
+	br = branch
+	co = commit
+	ch = checkout
 [apply]
 	whitespace = nowarn
 [core]
 	editor = vim
+[branch]  
+    autosetuprebase = always
 [merge]
 	tool = vimdiff
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[http]
+	sslVerify = false
