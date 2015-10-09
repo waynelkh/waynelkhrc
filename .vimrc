@@ -1,8 +1,6 @@
-
-" 修改<Leader>鍵
+""<Leader>鍵
 "let mapleader = ','
 let g:mapleader = ','
-
 
 " Install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
@@ -121,9 +119,11 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
-" H跑到首列 L跑到尾端
-noremap H ^
-noremap L $
+" Ctrl + H跑到首列 L跑到尾端 J,K移動五行
+nnoremap <C-H> ^
+noremap <C-L> $
+noremap <C-J> 5j
+noremap <C-K> 5k
 " 將;也為: 進入命令
 nnoremap ; :
 nnoremap <BS> X
@@ -148,22 +148,39 @@ nnoremap <F4> :set list! list?<CR>
 set pastetoggle=<F5>    " 開關貼上有格式程式碼
 
 " 分頁相關
-nnoremap <C-t> :tabnew<CR>        " ctrl t 開啟新分頁
-inoremap <C-t> <Esc>:tabnew<CR>   " ctrl t 開啟新分頁
-nnoremap <Left> gT      " 方向左鍵切換上一個分頁
-nnoremap <Right> gt     " 方向右鍵切換下一個分頁
-map <C-t>e :tabedit<CR>     " 編輯分頁
-map <C-t>w :tabclose<CR>    " 關閉分頁
-map <C-t>m :tabm<CR>        " 移動分頁 
-let g:last_active_tab = 1
+"nnoremap <C-t> :tabnew<CR>        " ctrl t 開啟新分頁
+"inoremap <C-t> <Esc>:tabnew<CR>   " ctrl t 開啟新分頁
+"nnoremap <Left> gT      " 方向左鍵切換上一個分頁
+"nnoremap <Right> gt         " 方向右鍵切換下一個分頁
+"map <C-t>e :tabedit<CR>     " 編輯分頁
+"map <C-t>w :tabclose<CR>    " 關閉分頁
+"map <C-t>m :tabm<CR>        " 移動分頁 
+"let g:last_active_tab = 1
+
+" buffer相關
+nnoremap <Left> :bprevious<CR>  " 方向左鍵切換上一個分頁
+nnoremap <Right> :bnext<CR>     " 方向右鍵切換下一個分頁
+nnoremap <C-b>l :ls<CR>
+nnoremap <C-b>n :bn<CR>
+nnoremap <C-b>p :bp<CR>
+nnoremap <C-b>1 :1b<CR>
+nnoremap <C-b>2 :2b<CR>
+nnoremap <C-b>3 :3b<CR>
+nnoremap <C-b>4 :4b<CR>
+nnoremap <C-b>5 :5b<CR>
+nnoremap <C-b>6 :6b<CR>
+nnoremap <C-b>7 :7b<CR>
+nnoremap <C-b>8 :8b<CR>
+nnoremap <C-b>9 :9b<CR>
+nnoremap <C-b>0 :bl<CR>
 
 " 螢幕分割相關
 nnoremap <C-w>- :split<CR>
 nnoremap <C-w>\ :vsplit<CR>
-nnoremap <C-H> :vertical res-5<CR>
-nnoremap <C-J> :res+5<CR>
-nnoremap <C-K> :res-5<CR>
-nnoremap <C-L> :vertical res+5<CR>
+nnoremap H :vertical res-5<CR>
+nnoremap J :res+5<CR>
+nnoremap K :res-5<CR>
+nnoremap L :vertical res+5<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
