@@ -79,6 +79,10 @@ let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" " Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 "################### 括號增強 ############################
 Bundle 'kien/rainbow_parentheses.vim'
   let g:rbpt_colorpairs = [
