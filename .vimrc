@@ -173,6 +173,7 @@ nnoremap <C-b>7 :7b<CR>
 nnoremap <C-b>8 :8b<CR>
 nnoremap <C-b>9 :9b<CR>
 nnoremap <C-b>0 :bl<CR>
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR> " ,q 關閉當前buffer 視窗
 
 " 螢幕分割相關
 nnoremap <C-w>- :split<CR>
