@@ -46,6 +46,7 @@ set winwidth=80  " 設定單行寬度
 set scrolloff=7  " 移動時強迫上或下顯示多少行
 set number       " 設置行號
 set relativenumber number " 顯示相對行號
+set listchars=eol:$,tab:>-,trail:~,space:␣,nbsp:.,extends:>,precedes:< " 顯示空格tab換行等符號
 autocmd InsertEnter * :set norelativenumber number  " Insert mode 用絕對行號
 autocmd InsertLeave * :set relativenumber           " Normal mode 用相對行號
 
@@ -62,7 +63,7 @@ vnoremap <C-]> >gv
 " menuone  即使只有一個匹配，也使用彈出選單
 " longest  只插入匹配的最長公共文字
 " preview  在預覽視窗裡顯示當前選擇的補全的額外資訊, 只能和menu或menuone搭配使用
-set completeopt=longest,menu    " 啟動自動完成
+set completeopt=menu,preview,longest   " 啟動自動完成
 set wildmode=list:longest       " command 展開
 set wildmenu    " 自動匹配command
 set wildignore=*.o,*~,*.pyc,*.class    " Ignore compiled files
@@ -104,7 +105,7 @@ set shiftround    " 縮排時取, 取整 use multiple of shiftwidth when indenti
 " 滑鼠
 " - 點擊游標不會換, 使用在複製上
  set mouse-=a             " 停止使用滑鼠
-"  set mouse=a            " Automatically enable mouse usage
+" set mouse=a            " Automatically enable mouse usage
 " set mousehide          " Hide the mouse cursor while typing
 
 " Configure backspace so it acts as it should act
@@ -173,7 +174,8 @@ nnoremap <C-b>7 :7b<CR>
 nnoremap <C-b>8 :8b<CR>
 nnoremap <C-b>9 :9b<CR>
 nnoremap <C-b>0 :bl<CR>
-
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR> " ,q 關閉當前buffer 視窗
+"
 " 螢幕分割相關
 nnoremap <C-w>- :split<CR>
 nnoremap <C-w>\ :vsplit<CR>
@@ -183,5 +185,16 @@ nnoremap K :res-5<CR>
 nnoremap L :vertical res+5<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Enable omni completion (<C-X><C-O> when in Insert mode)
+set omnifunc=syntaxcomplete#Complete
+" Autocomplete behavior - complete as you type, use Enter to select.
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : "<CR>''"')"
 
 autocmd! bufwritepost .vimrc source % " vimrc文件修改後自動reload。 linux。

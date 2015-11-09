@@ -1,12 +1,10 @@
-
-" 修改<Leader>鍵
-let mapleader = ','
+""<Leader>鍵
+"let mapleader = ','
 let g:mapleader = ','
 
-
 " Install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles"))
-    source ~/.vimrc.bundles
+if filereadable(expand("~/.nvimrc.bundles"))
+    source ~/.nvimrc.bundles
 endif
 
 " 檔案類型
@@ -47,6 +45,7 @@ set showmode     " 在左下角顯示現在的模式
 set winwidth=80  " 設定單行寬度
 set scrolloff=7  " 移動時強迫上或下顯示多少行
 set number       " 設置行號
+set listchars=eol:$,tab:>-,trail:~,space:␣,nbsp:.,extends:>,precedes:< " 顯示空格tab換行等符號
 set relativenumber number " 顯示相對行號
 autocmd InsertEnter * :set norelativenumber number  " Insert mode 用絕對行號
 autocmd InsertLeave * :set relativenumber           " Normal mode 用相對行號
@@ -64,7 +63,7 @@ vnoremap <C-]> >gv
 " menuone  即使只有一個匹配，也使用彈出選單
 " longest  只插入匹配的最長公共文字
 " preview  在預覽視窗裡顯示當前選擇的補全的額外資訊, 只能和menu或menuone搭配使用
-set completeopt=longest,menu    " 啟動自動完成
+set completeopt=menu,preview,longest   " 啟動自動完成
 set wildmode=list:longest       " command 展開
 set wildmenu    " 自動匹配command
 set wildignore=*.o,*~,*.pyc,*.class    " Ignore compiled files
@@ -106,7 +105,7 @@ set shiftround    " 縮排時取, 取整 use multiple of shiftwidth when indenti
 " 滑鼠
 " - 點擊游標不會換, 使用在複製上
  set mouse-=a             " 停止使用滑鼠
-"  set mouse=a            " Automatically enable mouse usage
+" set mouse=a            " Automatically enable mouse usage
 " set mousehide          " Hide the mouse cursor while typing
 
 " Configure backspace so it acts as it should act
@@ -121,9 +120,11 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
-" H跑到首列 L跑到尾端
-noremap H ^
-noremap L $
+" Ctrl + H跑到首列 L跑到尾端 J,K移動五行
+nnoremap <C-H> ^
+noremap <C-L> $
+noremap <C-J> 5j
+noremap <C-K> 5k
 " 將;也為: 進入命令
 nnoremap ; :
 nnoremap <BS> X
@@ -148,23 +149,41 @@ nnoremap <F4> :set list! list?<CR>
 set pastetoggle=<F5>    " 開關貼上有格式程式碼
 
 " 分頁相關
-nnoremap <C-t> :tabnew<CR>        " ctrl t 開啟新分頁
-inoremap <C-t> <Esc>:tabnew<CR>   " ctrl t 開啟新分頁
-nnoremap <Left> gT      " 方向左鍵切換上一個分頁
-nnoremap <Right> gt     " 方向右鍵切換下一個分頁
-map <C-t>e :tabedit<CR>     " 編輯分頁
-map <C-t>w :tabclose<CR>    " 關閉分頁
-map <C-t>m :tabm<CR>        " 移動分頁 
-let g:last_active_tab = 1
+"nnoremap <C-t> :tabnew<CR>        " ctrl t 開啟新分頁
+"inoremap <C-t> <Esc>:tabnew<CR>   " ctrl t 開啟新分頁
+"nnoremap <Left> gT      " 方向左鍵切換上一個分頁
+"nnoremap <Right> gt         " 方向右鍵切換下一個分頁
+"map <C-t>e :tabedit<CR>     " 編輯分頁
+"map <C-t>w :tabclose<CR>    " 關閉分頁
+"map <C-t>m :tabm<CR>        " 移動分頁 
+"let g:last_active_tab = 1
+
+" buffer相關
+nnoremap <Left> :bprevious<CR>  " 方向左鍵切換上一個分頁
+nnoremap <Right> :bnext<CR>     " 方向右鍵切換下一個分頁
+nnoremap <C-b>l :ls<CR>
+nnoremap <C-b>n :bn<CR>
+nnoremap <C-b>p :bp<CR>
+nnoremap <C-b>1 :1b<CR>
+nnoremap <C-b>2 :2b<CR>
+nnoremap <C-b>3 :3b<CR>
+nnoremap <C-b>4 :4b<CR>
+nnoremap <C-b>5 :5b<CR>
+nnoremap <C-b>6 :6b<CR>
+nnoremap <C-b>7 :7b<CR>
+nnoremap <C-b>8 :8b<CR>
+nnoremap <C-b>9 :9b<CR>
+nnoremap <C-b>0 :bl<CR>
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR> " ,q 關閉當前buffer 視窗
 
 " 螢幕分割相關
 nnoremap <C-w>- :split<CR>
 nnoremap <C-w>\ :vsplit<CR>
-nnoremap <C-H> :vertical res-5<CR>
-nnoremap <C-J> :res+5<CR>
-nnoremap <C-K> :res-5<CR>
-nnoremap <C-L> :vertical res+5<CR>
+nnoremap H :vertical res-5<CR>
+nnoremap J :res+5<CR>
+nnoremap K :res-5<CR>
+nnoremap L :vertical res+5<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-autocmd! bufwritepost .vimrc source % " vimrc文件修改後自動reload。 linux。
+autocmd! bufwritepost .nvimrc source % " vimrc文件修改後自動reload。 linux。

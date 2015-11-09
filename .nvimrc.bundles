@@ -56,17 +56,17 @@ Plugin 'lazywei/vim-doc-tw'
 "nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
  
 "################### UltiSnips ############################
-"Bundle 'SirVer/ultisnips'
+Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-"Bundle 'honza/vim-snippets'
-"let g:UltiSnipsExpandTrigger       = "<tab>"
-"let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-"let g:UltiSnipsSnippetDirectories  = ['UltiSnips']
-"let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+Bundle 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsSnippetDirectories  = ['UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
 " 进入对应filetype的snippets进行编辑
-"map <leader>us :UltiSnipsEdit<CR>
+map <leader>us :UltiSnipsEdit<CR>
 
 "################### airline enhancement ##################
 Bundle 'bling/vim-airline'
@@ -111,11 +111,11 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 "################### GitGutter ##############################
-"Bundle 'airblade/vim-gitgutter'
-"let g:gitgutter_map_keys = 0
-"let g:gitgutter_enabled = 0
-"let g:gitgutter_highlight_lines = 1
-"nnoremap <leader>gs :GitGutterToggle<CR>
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_map_keys = 0
+let g:gitgutter_enabled = 0
+let g:gitgutter_highlight_lines = 1
+nnoremap <leader>gs :GitGutterToggle<CR>
 
 "################### 匹配括弧 ############################## 
 Bundle 'Raimondi/delimitMate'
@@ -163,48 +163,48 @@ let g:NERDTreeMapOpenVSplit = '\|'
 Bundle 'jistr/vim-nerdtree-tabs'
 map <F2> <plug>NERDTreeTabsToggle<CR>
 " 關閉同步
-"let g:nerdtree_tabs_synchronize_view=0
-"let g:nerdtree_tabs_synchronize_focus=0
+let g:nerdtree_tabs_synchronize_view=0
+let g:nerdtree_tabs_synchronize_focus=0
 " 自動打開nerdtree 
 "let g:nerdtree_tabs_open_on_console_startup=1
 
 "################## TagList ##############################
-"Bundle 'majutsushi/tagbar'
-"nmap <F9> :TagbarToggle<CR>
-"let g:tagbar_autofocus = 1
+Bundle 'majutsushi/tagbar'
+nmap <F9> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
 
 "################# Markdown #########
-"Bundle 'plasticboy/vim-markdown'
-"let g:vim_markdown_folding_disabled=1
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
 
 "##### H#TML/JS/JQUERY/CSS #########
 " for javascript  注意: syntax这个插件要放前面
-"Bundle 'jelera/vim-javascript-syntax'
-"Bundle "pangloss/vim-javascript"
-"let g:html_indent_inctags = "html,body,head,tbody"
-"let g:html_indent_script1 = "inc"
-"let g:html_indent_style1 = "inc"
+Bundle 'jelera/vim-javascript-syntax'
+Bundle "pangloss/vim-javascript"
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " For javascript 自動完成,配合YCM, 需要安装nodejs&npm  see
 " https://github.com/marijnh/tern_for_vim
-"Bundle 'marijnh/tern_for_vim'
+Bundle 'marijnh/tern_for_vim'
 
 " For Node 自動完成
-"Bundle 'myhere/vim-nodejs-complete'
+Bundle 'myhere/vim-nodejs-complete'
 
 "###### emmet HTML complete #########
-"Bundle "mattn/emmet-vim"
+Bundle "mattn/emmet-vim"
 
 "###### 匹配html/xml tag ############
-"Bundle 'docunext/closetag.vim'
-"let g:closetag_html_style=1
+Bundle 'docunext/closetag.vim'
+let g:closetag_html_style=1
 
 "###### jsx plugin #########
-"Bundle "mxw/vim-jsx"
-"let g:jsx_ext_required = 0
+Bundle "mxw/vim-jsx"
+let g:jsx_ext_required = 0
 
 "###### React Snippet ########
-"Bundle "justinj/vim-react-snippets"
+Bundle "justinj/vim-react-snippets"
 
 "################## Theme ########################
 Bundle 'altercation/vim-colors-solarized'
