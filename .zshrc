@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="amuse"
+#ZSH_THEME="powerline-modified"
 ZSH_THEME="half-life"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -26,7 +26,7 @@ ZSH_THEME="half-life"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -41,25 +41,31 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+export PATH=$PATH":/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin:/Users/waynelkh/gradle/bin:/Users/waynelkh/android-sdks/tools"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git-flow brew osx node npm nvm sublime composer heroku)
+plugins=(git-flow tmux brew osx node npm nvm sublime composer zsh-syntax-highlighting zsh-autosuggestions docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
+# Enable autosuggestions automatically.
+zle-line-init() {
+    zle autosuggest-start
+}
+zle -N zle-line-init
 # User configuration
 DEFAULT_USER="waynelkh"
-
-export PATH=$PATH":/usr/local/git/bin:/usr/local/mysql/bin:/Users/waynelkh/gradle/bin:/Users/waynelkh/android-sdks/tools"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
-#
-# let man page colorful
+export ANDROID_HOME=/Users/waynelkh/android-sdks/
+
+#let man page colorful
 man() {
 env \
   LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -95,15 +101,15 @@ man "$@"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias winlab="ssh wnlee@140.113.215.183"
-alias linux6="mosh wnlee@linux6.cs.nctu.edu.tw"
-alias bsd6="ssh wnlee@bsd6.cs.nctu.edu.tw"
-alias scplinux6='tmpfun(){ scp -r wnlee@linux6.cs.nctu.edu.tw:~/myFile/$1 ./ };tmpfun'
+alias linux="mosh wnlee@linux4.cs.nctu.edu.tw"
+alias bsd="ssh wnlee@bsd4.cs.nctu.edu.tw"
+alias scplinux='tmpfun(){ scp -r wnlee@linux4.cs.nctu.edu.tw:~/myFile/$1 ./ };tmpfun'
 alias delds='sudo find . -name .DS_Store -exec rm {} \; '
-alias cctunnel='ssh -NC -D 127.0.0.1:19999 wnlee@linux6.cs.nctu.edu.tw'
-alias wintunnel='ssh -NC -D 127.0.0.1:19999 wnlee@140.113.215.183'
+alias cctunnel='ssh -NC -D 127.0.0.1:19999 wnlee@linux4.cs.nctu.edu.tw'
+alias wintunnel='ssh -NC -D 127.0.0.1:19999 wnlee@pc.wnlee.xyz'
 alias vim='/usr/local/bin/vim'
 
 # nvm
+export NODE_PATH=/usr/local/lib/node_modules
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-export NPM_CONFIG_PREFIX="/usr/local"
