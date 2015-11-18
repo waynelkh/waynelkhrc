@@ -196,6 +196,7 @@ Bundle 'myhere/vim-nodejs-complete'
 
 "###### emmet HTML complete #########
 Bundle "mattn/emmet-vim"
+let g:user_emmet_leader_key='<C-E>'
 
 "###### 匹配html/xml tag ############
 Bundle 'docunext/closetag.vim'
