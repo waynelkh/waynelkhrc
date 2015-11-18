@@ -100,7 +100,10 @@ man "$@"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias winlab="ssh wnlee@140.113.215.183"
+alias l='colourify ls -lhp'
+alias ll='colourify ls -lhAp'
+unalias la
+unalias lsa
 alias linux="mosh wnlee@linux4.cs.nctu.edu.tw"
 alias bsd="ssh wnlee@bsd4.cs.nctu.edu.tw"
 alias scplinux='tmpfun(){ scp -r wnlee@linux4.cs.nctu.edu.tw:~/myFile/$1 ./ };tmpfun'
