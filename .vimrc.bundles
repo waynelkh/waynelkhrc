@@ -20,6 +20,8 @@ Plugin 'gmarik/Vundle.vim'
 "################### 繁體中文HELP #######################
 Plugin 'lazywei/vim-doc-tw'
 
+"################### editconfig #########################
+"Plugin 'editorconfig/editorconfig-vim'
 "################### Sytastic 語法檢查 ###################
 "Bundle 'scrooloose/syntastic'
 "let g:syntastic_error_symbol='>>'
@@ -194,7 +196,7 @@ map <F2> <plug>NERDTreeTabsToggle<CR>
 
 "###### emmet HTML complete #########
 "Bundle "mattn/emmet-vim"
-
+"let g:user_emmet_expandabbr_key = '<C-e>'
 "###### 匹配html/xml tag ############
 "Bundle 'docunext/closetag.vim'
 "let g:closetag_html_style=1
