@@ -160,9 +160,9 @@ set pastetoggle=<F5>    " 開關貼上有格式程式碼
 " buffer相關
 nnoremap <Left> :bprevious<CR>  " 方向左鍵切換上一個分頁
 nnoremap <Right> :bnext<CR>     " 方向右鍵切換下一個分頁
-nnoremap <C-b>l :ls<CR>
-nnoremap <C-b>n :bn<CR>
-nnoremap <C-b>p :bp<CR>
+nnoremap gl :ls<CR>
+nnoremap gb :bn<CR>
+nnoremap gB :bp<CR>
 nnoremap <C-b>1 :1b<CR>
 nnoremap <C-b>2 :2b<CR>
 nnoremap <C-b>3 :3b<CR>
