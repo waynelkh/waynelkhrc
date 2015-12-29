@@ -26,6 +26,7 @@ set history=100  " 保留 100 個使用過的指令
 set shortmess=atI " 啟動為空白頁面
 set ttyfast      " 加快遠端移動
 set hidden       " 開啟緩衝
+set clipboard=unnamed " 與系統共用剪貼簿
 
 " 檔案操作
 set nobackup     " 取消備份
