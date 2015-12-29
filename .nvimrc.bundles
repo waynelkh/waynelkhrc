@@ -20,6 +20,14 @@ Plugin 'gmarik/Vundle.vim'
 "################### 繁體中文HELP #######################
 Plugin 'lazywei/vim-doc-tw'
 
+"################### vim interact with tmux #######################
+Plugin 'benmills/vimux'
+nmap <Leader>vr :VimuxPromptCommand<CR>
+nmap <Leader>vq :VimuxCloseRunner<CR>
+nmap <Leader>nt :call VimuxRunCommand("clear;npm test")<CR>
+nmap <Leader>ns :call VimuxRunCommand("clear;npm start")<CR>
+"################### editconfig #########################
+Plugin 'editorconfig/editorconfig-vim'
 "################### Sytastic 語法檢查 ###################
 "Bundle 'scrooloose/syntastic'
 "let g:syntastic_error_symbol='>>'
