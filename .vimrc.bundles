@@ -27,18 +27,26 @@ Plugin 'editorconfig/editorconfig-vim'
 "################### surrround #########################
 "Plugin 'tpope/vim-surround'
 "################### Sytastic 語法檢查 ###################
-"Bundle 'scrooloose/syntastic'
-"let g:syntastic_error_symbol='>>'
-"let g:syntastic_warning_symbol='>'
-"let g:syntastic_check_on_open=1
-"let g:syntastic_enable_highlighting = 0
+Bundle 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
 ""let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 ""let g:syntastic_python_checkers=['pyflakes'] "
 "" 使用pyflakes,速度比pylint快
-"let g:syntastic_javascript_checkers = ['jsl', 'jshint', 'jsxhint']
-"let g:syntastic_html_checkers=['tidy', 'jshint']
-"highlight SyntasticErrorSign guifg=white guibg=black
+let g:syntastic_html_checkers=['tidy']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec ='./node_modules/.bin/eslint'
 
+nnoremap <leader>st :SyntasticToggleMode<CR>
 "################### YCM 自動完成 ########################
 "bundle 'Valloric/YouCompleteMe'
 ""youcompleteme  默认tab  s-tab 和自动补全冲突
@@ -166,6 +174,7 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
+
 "################## NERDTREE ################################
 Bundle 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
