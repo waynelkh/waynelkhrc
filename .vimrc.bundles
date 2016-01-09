@@ -24,6 +24,8 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 "################### editconfig #########################
 Plugin 'editorconfig/editorconfig-vim'
+"################### surrround #########################
+"Plugin 'tpope/vim-surround'
 "################### Sytastic 語法檢查 ###################
 "Bundle 'scrooloose/syntastic'
 "let g:syntastic_error_symbol='>>'
