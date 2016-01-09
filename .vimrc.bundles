@@ -19,7 +19,9 @@ Plugin 'gmarik/Vundle.vim'
 
 "################### 繁體中文HELP #######################
 Plugin 'lazywei/vim-doc-tw'
-
+"################### vim-fzf  #######################
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 "################### editconfig #########################
 Plugin 'editorconfig/editorconfig-vim'
 "################### Sytastic 語法檢查 ###################
