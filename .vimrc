@@ -46,6 +46,7 @@ set showmode     " 在左下角顯示現在的模式
 set winwidth=80  " 設定單行寬度
 set scrolloff=7  " 移動時強迫上或下顯示多少行
 set number       " 設置行號
+set listchars=eol:$,tab:>-,trail:~,space:␣,nbsp:.,extends:>,precedes:< " 顯示空格tab換行等符號
 set relativenumber number " 顯示相對行號
 autocmd InsertEnter * :set norelativenumber number  " Insert mode 用絕對行號
 autocmd InsertLeave * :set relativenumber           " Normal mode 用相對行號
@@ -63,7 +64,7 @@ vnoremap <C-]> >gv
 " menuone  即使只有一個匹配，也使用彈出選單
 " longest  只插入匹配的最長公共文字
 " preview  在預覽視窗裡顯示當前選擇的補全的額外資訊, 只能和menu或menuone搭配使用
-set completeopt=longest,menu    " 啟動自動完成
+set completeopt=menu,preview,longest   " 啟動自動完成
 set wildmode=list:longest       " command 展開
 set wildmenu    " 自動匹配command
 set wildignore=*.o,*~,*.pyc,*.class    " Ignore compiled files
