@@ -24,6 +24,12 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 "################### editconfig #########################
 Plugin 'editorconfig/editorconfig-vim'
+"################### vim interact with tmux #######################
+Plugin 'benmills/vimux'
+nmap <Leader>vr :VimuxPromptCommand<CR>
+nmap <Leader>vq :VimuxCloseRunner<CR>
+nmap <Leader>nt :call VimuxRunCommand("clear;npm test")<CR>
+nmap <Leader>ns :call VimuxRunCommand("clear;npm start")<CR>
 "################### surrround #########################
 "Plugin 'tpope/vim-surround'
 "################### Sytastic 語法檢查 ###################
