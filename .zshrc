@@ -61,12 +61,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Enable autosuggestions automatically.
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
-
 # User configuration
 DEFAULT_USER="wnlee"
 
@@ -92,7 +86,6 @@ alias fvim="vim -u NONE"
 alias nvim="vim -u ~/.nvimrc"
 alias ptt="ssh bbsu@ptt.cc"
 alias bs2="ssh bbsu@ssh.bs2.to"
-alias gethost="ypcat hosts | grep '140.113.235.' | sort -t '.' -n -k4,4"
 # 去除打目錄名稱會cd進去功能
 unsetopt autocd
 unsetopt cdablevars
@@ -102,6 +95,3 @@ unset MAILCHECK
 alias ssh='function _ssh(){ lasthost=`hostname -s`; printf "\033k$1\033\\"; ssh $1; printf "\033k$lasthost\033\\" };_ssh'
 # docker alias
 [ -f ~/.bashrc_docker ] && . ~/.bashrc_docker
-
-export NVM_DIR="/u/gcs/103/0356090/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvmi
