@@ -47,9 +47,7 @@ export PATH=$PATH":/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git-extra git-flow tmux brew osx node npm nvm sublime composer zsh-syntax-highlighting zsh-autosuggestions docker docker-compose zsh-fzf)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+plugins=(git-extra git-flow tmux brew osx node npm docker docker-compose heroku zsh-fzf zsh-syntax-highlighting zsh-autosuggestions)
 
 # Enable autosuggestions automatically.
 zle-line-init() {
