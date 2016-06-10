@@ -108,12 +108,7 @@ unalias lsa
 alias linux="mosh wnlee@linux4.cs.nctu.edu.tw"
 alias bsd="ssh wnlee@bsd4.cs.nctu.edu.tw"
 alias scplinux='tmpfun(){ scp -r wnlee@linux4.cs.nctu.edu.tw:~/myFile/$1 ./ };tmpfun'
-alias delds='sudo find . -name .DS_Store -exec rm {} \; '
 alias cctunnel='ssh -NC -D 127.0.0.1:19999 wnlee@linux4.cs.nctu.edu.tw'
-alias wintunnel='ssh -NC -D 127.0.0.1:19999 wnlee@pc.wnlee.xyz'
 alias vim='/usr/local/bin/vim'
-
-# nvm
-export NODE_PATH=/usr/local/lib/node_modules
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+alias delds='sudo find . -name .DS_Store -exec rm {} \; '
+alias ports='lsof -Pni4 | grep LISTEN'
